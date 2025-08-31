@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/lib/supabase";
 import "leaflet/dist/leaflet.css";
 
 interface ParkingLot {
@@ -15,18 +14,36 @@ interface ParkingLot {
 
 const kadikoyCenter: [number, number] = [40.9902, 29.0271];
 
+// Demo data (ileride Supabase’den çekilecek)
+const demoLots: ParkingLot[] = [
+  {
+    id: "1",
+    name: "Kadıköy Rıhtım Otoparkı",
+    lat: 40.9906,
+    lng: 29.0198,
+    available_spaces: 12,
+    total_spaces: 30,
+  },
+  {
+    id: "2",
+    name: "Bahariye Katlı Otoparkı",
+    lat: 40.9879,
+    lng: 29.0275,
+    available_spaces: 5,
+    total_spaces: 25,
+  },
+  {
+    id: "3",
+    name: "Moda Sahil Parkı",
+    lat: 40.9823,
+    lng: 29.0311,
+    available_spaces: 0,
+    total_spaces: 20,
+  },
+];
+
 const MapView = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const [lots, setLots] = useState<ParkingLot[]>([]);
-
-  useEffect(() => {
-    const fetchLots = async () => {
-      const { data, error } = await supabase.from("parking_lots").select("*");
-      if (error) console.error(error);
-      else setLots(data);
-    };
-    fetchLots();
-  }, []);
 
   const handleMapClick = () => setIsFullScreen(true);
   const closeMap = () => setIsFullScreen(false);
@@ -49,7 +66,7 @@ const MapView = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {lots.map((lot) => (
+        {demoLots.map((lot) => (
           <Marker key={lot.id} position={[lot.lat, lot.lng]}>
             <Popup>
               <b>{lot.name}</b> <br />
