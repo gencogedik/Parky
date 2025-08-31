@@ -26,7 +26,28 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
+				},
+				eco: {
+					green: 'hsl(var(--eco-green))',
+					light: 'hsl(var(--eco-light))',
+					dark: 'hsl(var(--eco-dark))',
+					nature: 'hsl(var(--nature-green))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					light: 'hsl(var(--success-light))',
+					available: 'hsl(var(--available))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					light: 'hsl(var(--warning-light))'
+				},
+				map: {
+					gray: 'hsl(var(--map-gray))',
+					subtle: 'hsl(var(--subtle-gray))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -70,25 +91,43 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'bounce-soft': {
+					'0%, 100%': { transform: 'translateY(0) scale(1)' },
+					'50%': { transform: 'translateY(-8px) scale(1.02)' }
+				},
+				'fade-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'zoom-in': {
+					'0%': { opacity: '0', transform: 'scale(0.9)' },
+					'100%': { opacity: '1', transform: 'scale(1)' }
+				},
+				'marker-pulse': {
+					'0%, 100%': { 
+						transform: 'scale(1)',
+						boxShadow: '0 0 0 0 hsl(var(--eco-green) / 0.4)'
 					},
-					to: {
-						height: '0'
+					'50%': { 
+						transform: 'scale(1.05)',
+						boxShadow: '0 0 0 10px hsl(var(--eco-green) / 0)'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-soft': 'bounce-soft 0.6s ease-in-out',
+				'fade-up': 'fade-up 0.4s ease-out',
+				'zoom-in': 'zoom-in 0.3s ease-out',
+				'marker-pulse': 'marker-pulse 2s ease-in-out infinite'
 			}
 		}
 	},
