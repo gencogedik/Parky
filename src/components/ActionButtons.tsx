@@ -26,8 +26,8 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onCreateParking, onFindPa
               <Search size={24} />
             </div>
             <div className="text-left">
-              <div className="font-semibold text-lg">Find Parking Space</div>
-              <div className="text-sm opacity-90">Discover available spots nearby</div>
+              <div className="font-semibold text-lg">Park Yeri Bul</div>
+              <div className="text-sm opacity-90">Yakındaki uygun alanları keşfet</div>
             </div>
           </div>
           <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -50,8 +50,8 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onCreateParking, onFindPa
               <Plus size={24} className="text-primary" />
             </div>
             <div className="text-left">
-              <div className="font-semibold text-lg text-foreground">Create Parking Lot</div>
-              <div className="text-sm text-muted-foreground">Share your space with others</div>
+              <div className="font-semibold text-lg text-foreground">Park Alanı Oluştur</div>
+              <div className="text-sm text-muted-foreground">Alanınızı başkalarıyla paylaşın</div>
             </div>
           </div>
           <ChevronRight size={24} className="text-primary group-hover:translate-x-1 
@@ -66,7 +66,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onCreateParking, onFindPa
             <Zap size={20} className="text-success" />
           </div>
           <div className="font-bold text-lg text-success">28</div>
-          <div className="text-xs text-success/70">Available Now</div>
+          <div className="text-xs text-success/70">Şimdi Uygun</div>
         </div>
         
         <div className="bg-primary/10 rounded-xl p-4 text-center">
@@ -74,7 +74,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onCreateParking, onFindPa
             <MapPin size={20} className="text-primary" />
           </div>
           <div className="font-bold text-lg text-primary">12</div>
-          <div className="text-xs text-primary/70">Nearby Lots</div>
+          <div className="text-xs text-primary/70">Yakındaki Alanlar</div>
         </div>
       </div>
     </div>

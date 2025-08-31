@@ -7,15 +7,15 @@ const SearchBar = () => {
   const [isFocused, setIsFocused] = useState(false);
 
   const recentSearches = [
-    'Downtown Mall',
-    'City Center',
-    'Park Avenue',
+    'Merkez AVM',
+    'Şehir Merkezi',
+    'Park Caddesi',
   ];
 
   const popularAreas = [
-    { name: 'Business District', distance: '0.5 mi' },
-    { name: 'Shopping Center', distance: '1.2 mi' },
-    { name: 'University Campus', distance: '2.1 mi' },
+    { name: 'İş Merkezi', distance: '0.8 km' },
+    { name: 'Alışveriş Merkezi', distance: '1.9 km' },
+    { name: 'Üniversite Kampüsü', distance: '3.4 km' },
   ];
 
   return (
@@ -31,7 +31,7 @@ const SearchBar = () => {
           onChange={(e) => setSearchValue(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setTimeout(() => setIsFocused(false), 150)}
-          placeholder="Search for parking locations..."
+          placeholder="Park alanlarında ara..."
           className="border-0 bg-transparent text-base placeholder:text-muted-foreground
             focus-visible:ring-0 focus-visible:ring-offset-0 px-4 py-6"
         />
@@ -55,7 +55,7 @@ const SearchBar = () => {
             <div className="p-4 border-b border-border">
               <div className="flex items-center gap-2 mb-3">
                 <Clock size={16} className="text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Recent</span>
+                <span className="text-sm font-medium text-muted-foreground">Son aramalar</span>
               </div>
               <div className="space-y-2">
                 {recentSearches.map((search, index) => (
@@ -80,7 +80,7 @@ const SearchBar = () => {
           <div className="p-4">
             <div className="flex items-center gap-2 mb-3">
               <MapPin size={16} className="text-muted-foreground" />
-              <span className="text-sm font-medium text-muted-foreground">Popular nearby</span>
+              <span className="text-sm font-medium text-muted-foreground">Yakındaki popüler</span>
             </div>
             <div className="space-y-2">
               {popularAreas.map((area, index) => (
